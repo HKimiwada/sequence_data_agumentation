@@ -3,6 +3,8 @@
 from Bio import SeqIO
 from io import StringIO
 import requests
+import os, shutil
+import pandas as pd
 
 def get_sequences(accession_numbers):
     base_url = "https://www.uniprot.org/uniprot/"
@@ -17,9 +19,6 @@ def get_sequences(accession_numbers):
         sequences[accession] = str(sequence.seq)
 
     return sequences
-
-import os, shutil
-import pandas as pd  # assumed imported elsewhere
 
 def find_homologs(df, column_name):
     results = []
